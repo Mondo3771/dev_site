@@ -26,5 +26,5 @@ jobs:
           username: ${{ secrets.CPANEL_USERNAME }}
           password: ${{ secrets.CPANEL_PASSWORD }}
           protocol: ftps
-          local-dir: dist
+          local-dir: dist/   # Ensure the trailing slash here
           server-dir: /public_html
