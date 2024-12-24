@@ -19,12 +19,12 @@ jobs:
       - name: Build Vite React App
         run: npm run build
 
-      - name: Deploy to cPanel
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      - name: Deploy via SFTP
+        uses: ashutoshvarma/action-scp@v1
         with:
-          server: ${{ secrets.CPANEL_HOST }}
+          local: dist/                # Local build directory
+          remote: /public_html/       # Target directory on the server
+          host: ${{ secrets.CPANEL_HOST }}
           username: ${{ secrets.CPANEL_USERNAME }}
           password: ${{ secrets.CPANEL_PASSWORD }}
-          protocol: ftps
-          local-dir: dist/       # Ensure trailing slash here
-          server-dir: /public_html/  # Ensure trailing slash here
+          port: 22                    # Default port for SFTP
