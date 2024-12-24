@@ -26,11 +26,11 @@ jobs:
 
       - name: Deploy to cPanel
         env:
-          CPANEL_USERNAME: ${{ secrets.CPANEl_USERNAME }}
-          CPANEL_TOKEN: ${{ secrets.CPANEl_TOKEN }}
-          CPANEL_DOMAIN: ${{ secrets.CPANEl_DOMAIN }}
+          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
+          CPANEL_TOKEN: ${{ secrets.CPANEL_TOKEN }}
+          CPANEL_DOMAIN: ${{ secrets.CPANEL_DOMAIN }}
         run: |
-          curl -s -X POST "http://${CPANEL_DOMAIN}:2082/json-api/cpanel" \
+          curl -s -X POST "https://${CPANEL_DOMAIN}:2083/json-api/cpanel" \
           -d "cpanel_jsonapi_user=${CPANEL_USERNAME}" \
           -d "cpanel_jsonapi_apiversion=2" \
           -d "cpanel_jsonapi_module=Fileman" \
