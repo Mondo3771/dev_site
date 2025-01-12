@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:               # Add the env block here
+      ACTIONS_STEP_DEBUG: true
 
     steps:
       - name: Checkout Code
@@ -22,7 +24,6 @@ jobs:
       - name: Deploy to cPanel
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          timeout: 120
           server: ${{ secrets.CPANEL_HOST }}
           username: ${{ secrets.CPANEL_USERNAME }}
           password: ${{ secrets.CPANEL_PASSWORD }}
