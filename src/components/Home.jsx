@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { ReactTyped } from "react-typed";
 import { useState } from "react";
-import hero from "../assets/heroGif.gif";
+import hero from "../assets/THero.png";
 import coder from "../assets/code-slash.svg";
 import fix from "../assets/repair.png";
 import webDev from "../assets/cloud.svg";
@@ -85,7 +85,8 @@ function Home() {
 
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
                     Computer Science graduate from the University of
-                    Witwatersrand with a passion for software development and
+                    Witwatersrand. Currently pursuing my honours degree. <br /> 
+                    I have a passion for software development and
                     cloud computing.
                   </p>
                   <div className="flex flex-row items-center">
@@ -140,7 +141,7 @@ function Home() {
                             HTML
                           </div>
                         </div> */}
-                      <a href="">
+                      <a href="https://en.wikipedia.org/wiki/HTML" target="_blank">
                         <img
                           src={html}
                           width="80"
@@ -150,7 +151,7 @@ function Home() {
                         />
                       </a>
 
-                      <a href="">
+                      <a href="https://en.wikipedia.org/wiki/CSS" target="_blank">
                         <img
                           src={css}
                           width="80"
@@ -159,7 +160,7 @@ function Home() {
                           className="cursor-pointer"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://www.javascript.com/" target="_blank">
                         <img
                           src={js}
                           width="80"
@@ -168,7 +169,7 @@ function Home() {
                           className="cursor-pointer"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://react.dev/" target="_blank">
                         <img
                           src={react}
                           width="80"
@@ -177,7 +178,7 @@ function Home() {
                           className="cursor-pointer"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://tailwindcss.com/" target="_blank">
                         <img
                           src={tailwind}
                           width="80"
@@ -186,7 +187,7 @@ function Home() {
                           className="cursor-pointer"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://nodejs.org/en" target="_blank">
                         <img
                           src={nodejs}
                           width="80"
@@ -195,7 +196,7 @@ function Home() {
                           className="cursor-pointer"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://www.mongodb.com/lp/cloud/atlas/try4-reg?utm_source=google&utm_campaign=search_gs_pl_evergreen_atlas_core_prosp-brand_gic-null_emea-za_ps-all_desktop_eng_lead&utm_term=mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624560&adgroup=115749711783&cq_cmp=12212624560&gad_source=1&gclid=CjwKCAiA7Y28BhAnEiwAAdOJUCVhPrUPxvdXP0rEZ_6pLzA0WXVBG3__NMrqXQyNTebAZwPGbIMKaxoCRi0QAvD_BwE" target="_blank">
                         <img
                           src={mongodb}
                           width="80"
@@ -204,7 +205,7 @@ function Home() {
                           className="cursor-pointer"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://azure.microsoft.com/en-gb/" target="_blank">
                         <img
                           src={azure}
                           width="80"
@@ -219,70 +220,70 @@ function Home() {
                   <div className="flex mt-3 items-center">
                     <h2 className="mr-3 hidden">Skills</h2>
                     <div className="flex flex-row">
-                      <a href="">
+                      <a href="https://www.java.com/en/" target="_blank">
                         <img
                           src={java}
                           width="80"
                           height="80"
-                          alt="HTML"
+                          alt="Java"
                           className="cursor-pointer"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://www.python.org/" target="_blank">
                         <img
                           src={python}
                           width="80"
                           height="80"
-                          alt="CSS"
+                          alt="Python"
                           className="cursor-pointer"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://www.jetbrains.com/clion/promo/?source=google&medium=cpc&campaign=EMEA_en_AFRICA_Clion_Search&term=c%20programming&content=699861115373&gad_source=1&gclid=CjwKCAiA7Y28BhAnEiwAAdOJUP_MQyvb7BWktidbbVFhgpkzQVZ3lrk5LG2ExhrnQuJZSXPa_acidRoCP6IQAvD_BwE" target="_blank">
                         <img
                           src={c}
                           width="80"
                           height="80"
-                          alt="JavaScript"
+                          alt="C"
                           className="cursor-pointer"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://www.jetbrains.com/clion/promo/?source=google&medium=cpc&campaign=EMEA_en_AFRICA_Clion_Search&term=c%20programming&content=699861115373&gad_source=1&gclid=CjwKCAiA7Y28BhAnEiwAAdOJUP_MQyvb7BWktidbbVFhgpkzQVZ3lrk5LG2ExhrnQuJZSXPa_acidRoCP6IQAvD_BwE" target="_blank">
                         <img
                           src={cpp}
                           width="80"
                           height="80"
-                          alt="React"
+                          alt="C++"
                           className="cursor-pointer"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://aws.amazon.com/what-is/sql/" target="_blank">
                         <img
                           src={sql}
                           width="80"
                           height="80"
-                          alt="Tailwind CSS"
+                          alt="SQL"
                           className="cursor-pointer"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://git-scm.com/" target="_blank">
                         <img
                           src={git}
                           width="80"
                           height="80"
-                          alt="Node.js"
+                          alt="Git"
                           className="cursor-pointer"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://www.agilealliance.org/agile101/#:~:text=Agile%20is%20the%20ability%20to,an%20uncertain%20and%20turbulent%20environment." target="_blank">
                         <img
                           src={agile}
                           width="80"
                           height="80"
-                          alt="MongoDB"
+                          alt="Agile"
                           className="cursor-pointer"
                         />
                       </a>
-                      <a href="">
+                      <a href="https://www.postman.com/" target="_blank">
                         <img
                           src={postman}
                           width="80"
@@ -298,7 +299,9 @@ function Home() {
               <img
                 src={hero}
                 alt="Hero"
-                className="mx-auto aspect-video rounded-xl object-cover sm:w-full"
+                width={350}
+                height={350}
+                className="mx-auto rounded-xl object-cover"
               />
             </div>
           </div>
@@ -515,7 +518,7 @@ function Home() {
                 </div>
                 <div className="flex items-center gap-4 mt-4">
                   <a
-                    href="https://campus-safety.azurewebsites.net/login"
+                    href="https://campus-safety.azurewebsites.net/"
                     target="_blank"
                   >
                     <img
@@ -669,7 +672,7 @@ function Home() {
                     />
                   </a>
                   <a
-                    href="https://github.com/KatangaDan/fat-guys.git"
+                    href="https://github.com/ThendoRavi/fat-guys.git"
                     target="_blank"
                   >
                     <img
@@ -710,7 +713,7 @@ function Home() {
                     className=" cursor-pointer mr-2"
                   />
                   <h3 className="text-xl font-bold">Location</h3>
-                </div>{" "}
+                </div>
                 <p className="text-muted-foreground">
                   Johannesburg, South Africa
                 </p>
@@ -727,13 +730,12 @@ function Home() {
                   <h3 className="text-xl font-bold">Email</h3>
                 </div>
                 <p className="text-muted-foreground">
-                  <Link
-                    href="thendorav@gmail.com"
-                    className=" hover:underline underline-offset-4"
-                    prefetch={false}
+                  <a
+                    href="mailto:thendorav@gmail.com"
+                    className="hover:underline underline-offset-4"
                   >
                     thendorav@gmail.com
-                  </Link>
+                  </a>
                 </p>
               </div>
             </div>
