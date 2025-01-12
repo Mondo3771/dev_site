@@ -22,9 +22,10 @@ jobs:
       - name: Deploy to cPanel
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
+          timeout: 120
           server: ${{ secrets.CPANEL_HOST }}
           username: ${{ secrets.CPANEL_USERNAME }}
           password: ${{ secrets.CPANEL_PASSWORD }}
-          protocol: sftp
+          protocol: ftps
           local-dir: dist/       # Ensure trailing slash here
           server-dir: /public_html/  # Ensure trailing slash here
