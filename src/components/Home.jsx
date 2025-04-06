@@ -1,9 +1,11 @@
-import React from "react";
+"use client";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
 import { ReactTyped } from "react-typed";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { ChevronRight, ExternalLink, Github } from "lucide-react";
+
+// Import all your existing assets
 import hero from "../assets/THero.png";
 import coder from "../assets/code-slash.svg";
 import fix from "../assets/repair.png";
@@ -20,7 +22,6 @@ import mongodb from "../assets/mongodbT.svg";
 import azure from "../assets/azure.svg";
 import campusSafety from "../assets/campusSafety.png";
 import commongrounds from "../assets/commongrounds.png";
-import website from "../assets/website.png";
 import email from "../assets/email.png";
 import location from "../assets/placeholder.png";
 import java from "../assets/java.svg";
@@ -34,354 +35,418 @@ import postman from "../assets/postman.svg";
 import team from "../assets/management.png";
 import learner from "../assets/brain.png";
 import communication from "../assets/conversation.png";
-import wits from "../assets/wits-logo.png";
 import fatguys from "../assets/fat-guys.jpg";
+import witssdasm from "../assets/witssdasm.png";
 
 import "../App.css";
 
 function Home() {
-  // Define the hover state
-  //const [isHovered, setIsHovered] = useState(false);
+  // State for skill tooltip
+  const [activeTooltip, setActiveTooltip] = useState(null);
+
+  // Intersection Observer for animations
+  const [isVisible, setIsVisible] = useState({
+    about: false,
+    education: false,
+    projects: false,
+    contact: false,
+  });
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible((prev) => ({
+            ...prev,
+            [entry.target.id]: true,
+          }));
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    const sections = ["about", "education", "projects", "contact"];
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (element) observer.observe(element);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element) observer.unobserve(element);
+      });
+    };
+  }, []);
+
+  // Skill data for better organization
+  const skillsRow1 = [
+    { icon: html, name: "HTML", url: "https://en.wikipedia.org/wiki/HTML" },
+    { icon: css, name: "CSS", url: "https://en.wikipedia.org/wiki/CSS" },
+    { icon: js, name: "JavaScript", url: "https://www.javascript.com/" },
+    { icon: react, name: "React", url: "https://react.dev/" },
+    { icon: tailwind, name: "Tailwind CSS", url: "https://tailwindcss.com/" },
+    { icon: nodejs, name: "Node.js", url: "https://nodejs.org/en" },
+    { icon: mongodb, name: "MongoDB", url: "https://www.mongodb.com/" },
+    { icon: azure, name: "Azure", url: "https://azure.microsoft.com/en-gb/" },
+  ];
+
+  const skillsRow2 = [
+    { icon: java, name: "Java", url: "https://www.java.com/en/" },
+    { icon: python, name: "Python", url: "https://www.python.org/" },
+    { icon: c, name: "C", url: "https://www.jetbrains.com/clion/" },
+    { icon: cpp, name: "C++", url: "https://www.jetbrains.com/clion/" },
+    { icon: sql, name: "SQL", url: "https://aws.amazon.com/what-is/sql/" },
+    { icon: git, name: "Git", url: "https://git-scm.com/" },
+    {
+      icon: agile,
+      name: "Agile",
+      url: "https://www.agilealliance.org/agile101/",
+    },
+    { icon: postman, name: "Postman", url: "https://www.postman.com/" },
+  ];
+
   return (
-    <div>
+    <div className="bg-gradient-to-b from-[#f8fafc] to-[#e2f1fd] min-h-screen">
       <NavBar />
-      <main className="flex-1 items-center justify-center bg-[#F1F8FD] ">
-        <section id="home" className="w-full py-12 sm:py-16 md:py-12 lg:py-12 ">
-          <div className="container px-4 md:px-6 flex sm:flex-col items-center justify-center">
-            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-              <div className="flex flex-col justify-center space-y-4 ">
+      <main className="flex-1 items-center justify-center pt-16">
+        {/* Hero Section - Modern Design */}
+        <section
+          id="home"
+          className="w-full py-16 md:py-24 lg:py-32 overflow-hidden relative"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f1f8fd] to-[#e0f2fe] opacity-50 z-0"></div>
+          <div className="container px-4 md:px-6 relative z-10">
+            <div className="grid gap-8 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px] items-center">
+              <div className="flex flex-col justify-center space-y-6">
                 <div className="space-y-2">
-                  {/* ReactTyped Component Integration */}
-                  <div>
-                    <span className="text-xl from-neutral-700 tracking-tighter sm:text-5xl xl:text-4xl/none rounded-md p-2">
-                      <ReactTyped
-                        strings={[
-                          "Hello! My name is",
-                          "Dumela! Lebitso la ka ke",
-                          "Ndaa! Dzina langa ndi",
-                          "Sawubona! Igama lami ngu",
-                          "Molo! Igama lam ngu",
-                          "Dumela! Leina la me ke",
-                          "Thobela! Ke nna",
-                          "Avuxeni! Vito ra mina ndzi",
-                          "Salibonani! Ibizo lami ngu",
-                          "Hallo! My naam is",
-                          "Nǐ hǎo! Wǒ de míngzì shì",
-                          "Hola! Mi nombre es",
-                          "Namaste! Mera naam hai",
-                          "Bonjour! Je m'appelle",
-                          "Privet! Menya zovut",
-                          "Olá! Meu nome é",
-                        ]}
-                        typeSpeed={40}
-                        backSpeed={60}
-                        loop
-                      />
-                    </span>
+                  <div className="inline-block bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-4 py-1 rounded-full text-xl font-medium mb-2">
+                    <ReactTyped
+                      strings={[
+                        "Hello! My name is",
+                        "Dumela! Lebitso la ka ke",
+                        "Ndaa! Dzina langa ndi",
+                        "Sawubona! Igama lami ngu",
+                        "Molo! Igama lam ngu",
+                        "Dumela! Leina la me ke",
+                        "Thobela! Ke nna",
+                        "Avuxeni! Vito ra mina ndzi",
+                        "Salibonani! Ibizo lami ngu",
+                        "Hallo! My naam is",
+                        "Nǐ hǎo! Wǒ de míngzì shì",
+                        "Hola! Mi nombre es",
+                        "Namaste! Mera naam hai",
+                        "Bonjour! Je m'appelle",
+                        "Privet! Menya zovut",
+                        "Olá! Meu nome é",
+                      ]}
+                      typeSpeed={40}
+                      backSpeed={60}
+                      loop
+                    />
                   </div>
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none ">
+                  <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
                     Thendo Ravhengani
                   </h1>
-
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                  <div className="h-1 w-20 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full my-4"></div>
+                  <p className="text-lg text-gray-700 max-w-[600px] leading-relaxed">
                     Computer Science graduate from the University of
-                    Witwatersrand. Currently pursuing my honours degree. <br /> 
-                    I have a passion for software development and
-                    cloud computing.
+                    Witwatersrand. Currently pursuing my honours degree.
+                    <br />I have a passion for software development and cloud
+                    computing.
                   </p>
-                  <div className="flex flex-row items-center">
+
+                  <div className="flex flex-row items-center gap-4 mt-6">
                     <a
                       href="https://www.linkedin.com/in/thendo-ravhengani-b170982bb/"
                       target="_blank"
+                      className="transition-transform hover:scale-110"
+                      aria-label="LinkedIn Profile"
+                      rel="noreferrer"
                     >
-                      <img
-                        src={linkedIn}
-                        width="70"
-                        height="70"
-                        alt="Thendo Ravhengani"
-                        className=" cursor-pointer"
-                      />
+                      <div className="bg-white p-3 rounded-full shadow-md">
+                        <img
+                          src={linkedIn || "/placeholder.svg"}
+                          width="30"
+                          height="30"
+                          alt="LinkedIn"
+                          className="cursor-pointer"
+                        />
+                      </div>
                     </a>
-                    <a href="https://github.com/ThendoRavi" target="_blank">
-                      <img
-                        src={github}
-                        width="60"
-                        height="40"
-                        alt="Thendo Ravhengani"
-                        className=" cursor-pointer"
-                      />
+                    <a
+                      href="https://github.com/ThendoRavi"
+                      target="_blank"
+                      className="transition-transform hover:scale-110"
+                      aria-label="GitHub Profile"
+                      rel="noreferrer"
+                    >
+                      <div className="bg-white p-3 rounded-full shadow-md">
+                        <img
+                          src={github || "/placeholder.svg"}
+                          width="30"
+                          height="30"
+                          alt="GitHub"
+                          className="cursor-pointer"
+                        />
+                      </div>
                     </a>
                   </div>
-                  <h2 className="mt-2">Skills</h2>
-                  <div className="flex mt-3 items-center">
-                    <div className="flex flex-row">
-                      {/* <div className="relative inline-block">
-                          <a
-                            href=""
-                            onMouseEnter={() => setIsHovered(true)}
-                            onMouseLeave={() => setIsHovered(false)}
-                          >
-                            <img
-                              src={html}// Replace with your actual image path
-                              width="80"
-                              height="80"
-                              alt="HTML"
-                              className="cursor-pointer"
-                            />
-                          </a>
 
-                  
+                  {/* Skills Section - Redesigned */}
+                  <div className="mt-10">
+                    <h2 className="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                      <span className="h-px flex-grow max-w-[30px] bg-gray-300 mr-3"></span>
+                      Technical Skills
+                      <span className="h-px flex-grow bg-gray-300 ml-3"></span>
+                    </h2>
+
+                    <div className="bg-white rounded-xl shadow-lg p-6 relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-full -mr-20 -mt-20"></div>
+
+                      <div className="grid grid-cols-4 sm:grid-cols-8 gap-4 relative z-10">
+                        {skillsRow1.map((skill, index) => (
                           <div
-                            className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-4 py-2 bg-black text-white text-sm rounded shadow-lg transition-opacity duration-300 ${
-                              isHovered
-                                ? "opacity-100"
-                                : "opacity-0 pointer-events-none"
-                            }`}
+                            key={`skill1-${index}`}
+                            className="relative"
+                            onMouseEnter={() =>
+                              setActiveTooltip(`skill1-${index}`)
+                            }
+                            onMouseLeave={() => setActiveTooltip(null)}
                           >
-                            HTML
+                            <a
+                              href={skill.url}
+                              target="_blank"
+                              className="flex flex-col items-center justify-center transition-transform hover:scale-110"
+                              rel="noreferrer"
+                            >
+                              <div className="bg-gray-50 p-2 rounded-lg border border-gray-100 shadow-sm">
+                                <img
+                                  src={skill.icon || "/placeholder.svg"}
+                                  width="40"
+                                  height="40"
+                                  alt={skill.name}
+                                  className="cursor-pointer"
+                                />
+                              </div>
+                            </a>
+                            {activeTooltip === `skill1-${index}` && (
+                              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap z-20">
+                                {skill.name}
+                              </div>
+                            )}
                           </div>
-                        </div> */}
-                      <a href="https://en.wikipedia.org/wiki/HTML" target="_blank">
-                        <img
-                          src={html}
-                          width="80"
-                          height="80"
-                          alt="HTML"
-                          className="cursor-pointer"
-                        />
-                      </a>
+                        ))}
+                      </div>
 
-                      <a href="https://en.wikipedia.org/wiki/CSS" target="_blank">
-                        <img
-                          src={css}
-                          width="80"
-                          height="80"
-                          alt="CSS"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                      <a href="https://www.javascript.com/" target="_blank">
-                        <img
-                          src={js}
-                          width="80"
-                          height="80"
-                          alt="JavaScript"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                      <a href="https://react.dev/" target="_blank">
-                        <img
-                          src={react}
-                          width="80"
-                          height="80"
-                          alt="React"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                      <a href="https://tailwindcss.com/" target="_blank">
-                        <img
-                          src={tailwind}
-                          width="80"
-                          height="80"
-                          alt="Tailwind CSS"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                      <a href="https://nodejs.org/en" target="_blank">
-                        <img
-                          src={nodejs}
-                          width="80"
-                          height="80"
-                          alt="Node.js"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                      <a href="https://www.mongodb.com/lp/cloud/atlas/try4-reg?utm_source=google&utm_campaign=search_gs_pl_evergreen_atlas_core_prosp-brand_gic-null_emea-za_ps-all_desktop_eng_lead&utm_term=mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624560&adgroup=115749711783&cq_cmp=12212624560&gad_source=1&gclid=CjwKCAiA7Y28BhAnEiwAAdOJUCVhPrUPxvdXP0rEZ_6pLzA0WXVBG3__NMrqXQyNTebAZwPGbIMKaxoCRi0QAvD_BwE" target="_blank">
-                        <img
-                          src={mongodb}
-                          width="80"
-                          height="80"
-                          alt="MongoDB"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                      <a href="https://azure.microsoft.com/en-gb/" target="_blank">
-                        <img
-                          src={azure}
-                          width="80"
-                          height="80"
-                          alt="Azure"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex mt-3 items-center">
-                    <h2 className="mr-3 hidden">Skills</h2>
-                    <div className="flex flex-row">
-                      <a href="https://www.java.com/en/" target="_blank">
-                        <img
-                          src={java}
-                          width="80"
-                          height="80"
-                          alt="Java"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                      <a href="https://www.python.org/" target="_blank">
-                        <img
-                          src={python}
-                          width="80"
-                          height="80"
-                          alt="Python"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                      <a href="https://www.jetbrains.com/clion/promo/?source=google&medium=cpc&campaign=EMEA_en_AFRICA_Clion_Search&term=c%20programming&content=699861115373&gad_source=1&gclid=CjwKCAiA7Y28BhAnEiwAAdOJUP_MQyvb7BWktidbbVFhgpkzQVZ3lrk5LG2ExhrnQuJZSXPa_acidRoCP6IQAvD_BwE" target="_blank">
-                        <img
-                          src={c}
-                          width="80"
-                          height="80"
-                          alt="C"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                      <a href="https://www.jetbrains.com/clion/promo/?source=google&medium=cpc&campaign=EMEA_en_AFRICA_Clion_Search&term=c%20programming&content=699861115373&gad_source=1&gclid=CjwKCAiA7Y28BhAnEiwAAdOJUP_MQyvb7BWktidbbVFhgpkzQVZ3lrk5LG2ExhrnQuJZSXPa_acidRoCP6IQAvD_BwE" target="_blank">
-                        <img
-                          src={cpp}
-                          width="80"
-                          height="80"
-                          alt="C++"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                      <a href="https://aws.amazon.com/what-is/sql/" target="_blank">
-                        <img
-                          src={sql}
-                          width="80"
-                          height="80"
-                          alt="SQL"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                      <a href="https://git-scm.com/" target="_blank">
-                        <img
-                          src={git}
-                          width="80"
-                          height="80"
-                          alt="Git"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                      <a href="https://www.agilealliance.org/agile101/#:~:text=Agile%20is%20the%20ability%20to,an%20uncertain%20and%20turbulent%20environment." target="_blank">
-                        <img
-                          src={agile}
-                          width="80"
-                          height="80"
-                          alt="Agile"
-                          className="cursor-pointer"
-                        />
-                      </a>
-                      <a href="https://www.postman.com/" target="_blank">
-                        <img
-                          src={postman}
-                          width="80"
-                          height="80"
-                          alt="Azure"
-                          className="cursor-pointer"
-                        />
-                      </a>
+                      <div className="grid grid-cols-4 sm:grid-cols-8 gap-4 mt-4 relative z-10">
+                        {skillsRow2.map((skill, index) => (
+                          <div
+                            key={`skill2-${index}`}
+                            className="relative"
+                            onMouseEnter={() =>
+                              setActiveTooltip(`skill2-${index}`)
+                            }
+                            onMouseLeave={() => setActiveTooltip(null)}
+                          >
+                            <a
+                              href={skill.url}
+                              target="_blank"
+                              className="flex flex-col items-center justify-center transition-transform hover:scale-110"
+                              rel="noreferrer"
+                            >
+                              <div className="bg-gray-50 p-2 rounded-lg border border-gray-100 shadow-sm">
+                                <img
+                                  src={skill.icon || "/placeholder.svg"}
+                                  width="40"
+                                  height="40"
+                                  alt={skill.name}
+                                  className="cursor-pointer"
+                                />
+                              </div>
+                            </a>
+                            {activeTooltip === `skill2-${index}` && (
+                              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap z-20">
+                                {skill.name}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <img
-                src={hero}
-                alt="Hero"
-                width={350}
-                height={350}
-                className="mx-auto rounded-xl object-cover"
-              />
+
+              {/* Profile Image - Enhanced */}
+              <div className="relative mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-full blur-xl opacity-20 animate-pulse"></div>
+                <div className="relative bg-white p-2 rounded-full shadow-xl">
+                  <div className="rounded-full overflow-hidden border-4 border-white shadow-inner">
+                    <img
+                      src={hero || "/placeholder.svg"}
+                      alt="Thendo Ravhengani"
+                      width={400}
+                      height={400}
+                      className="rounded-full object-cover aspect-square"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* About Section */}
+        {/* About Section - Enhanced */}
         <section
           id="about"
-          className="w-full py-12 sm:py-16 md:py-12 lg:py-12 bg-muted"
+          className={`w-full py-16 md:py-24 bg-white ${
+            isVisible.about ? "animate-fadeIn" : "opacity-0"
+          }`}
         >
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-3">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <div className="inline-block bg-gradient-to-r from-teal-500/10 to-emerald-500/10 px-4 py-1.5 rounded-full">
+                <h2 className="text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-emerald-600">
                   Software Developer
                 </h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Seeking an environment where I can contribute my
-                  problem-solving skills and strong drive to master my coding
-                  expertise and deliver high-quality software solutions. <br />I
-                  enjoy problem-solving and coding and I am passionate about
-                  designing software solutions that are user-friendly and
-                  efficient. I'm constantly striving to expand my technical
-                  skills through practice and experimentation with new
-                  frameworks.
-                </p>
               </div>
+              <div className="h-1 w-20 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full my-2"></div>
+              <p className="max-w-[900px] text-gray-700 md:text-lg leading-relaxed">
+                Seeking an environment where I can contribute my problem-solving
+                skills and strong drive to master my coding expertise and
+                deliver high-quality software solutions. <br />I enjoy
+                problem-solving and coding and I am passionate about designing
+                software solutions that are user-friendly and efficient. I'm
+                constantly striving to expand my technical skills through
+                practice and experimentation with new frameworks.
+              </p>
             </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-6 py-12 lg:grid-cols-2 lg:gap-12 mr-15">
-              <div className="grid gap-1">
-                <img src={coder} width="30" height="30" alt="Logo" />
-                <h3 className="text-xl font-bold">Avid Coder</h3>
-                <p className="text-muted-foreground">
+
+            {/* Qualities Grid - Redesigned */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col">
+                <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  <img
+                    src={coder || "/placeholder.svg"}
+                    width="24"
+                    height="24"
+                    alt="Avid Coder"
+                    className="invert"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Avid Coder
+                </h3>
+                <p className="text-gray-600 flex-grow">
                   Over six years of coding experience, in different
                   environments.
                 </p>
               </div>
-              <div className="grid gap-1">
-                <img src={webDev} width="30" height="30" alt="Logo" />
-                <h3 className="text-xl font-bold">Web Dev</h3>
-                <p className="text-muted-foreground">
+
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col">
+                <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  <img
+                    src={webDev || "/placeholder.svg"}
+                    width="24"
+                    height="24"
+                    alt="Web Dev"
+                    className="invert"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Web Dev
+                </h3>
+                <p className="text-gray-600 flex-grow">
                   Full-stack development experience with the MERN stack
                   (MongooseDB, Express, React, Node.js) and JavaScript for
                   simple and complex web application solutions.
                 </p>
               </div>
-            </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-6 py-12 lg:grid-cols-4 lg:gap-12 mr-15">
-              <div className="grid gap-1">
-                <img src={fix} width="30" height="30" alt="Logo" />
-                <h3 className="text-xl font-bold">Problem Solver</h3>
-                <p className="text-muted-foreground">
+
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col">
+                <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  <img
+                    src={fix || "/placeholder.svg"}
+                    width="24"
+                    height="24"
+                    alt="Problem Solver"
+                    className="invert"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Problem Solver
+                </h3>
+                <p className="text-gray-600 flex-grow">
                   A natural problem-solver with a strong analytical mindset and
                   a deep mathematical background, adept at breaking down complex
                   challenges into manageable solutions.
-                  {/* I thrive in environments that require creative thinking, critical analysis, 
-                  and innovative approaches to deliver efficient and practical outcomes. */}
                 </p>
               </div>
-              <div className="grid gap-1">
-                <img src={team} width="30" height="30" alt="Logo" />
-                <h3 className="text-xl font-bold">Team Player</h3>
-                <p className="text-muted-foreground">
+
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col">
+                <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  <img
+                    src={team || "/placeholder.svg"}
+                    width="24"
+                    height="24"
+                    alt="Team Player"
+                    className="invert"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Team Player
+                </h3>
+                <p className="text-gray-600 flex-grow">
                   Collaborative and communicative, with experience working in
                   diverse team environments to successfully deliver projects.
                 </p>
               </div>
-              <div className="grid gap-1">
-                <img src={learner} width="30" height="30" alt="Logo" />
-                <h3 className="text-xl font-bold">Adaptable Learner</h3>
-                <p className="text-muted-foreground">
+
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col md:col-span-2 lg:col-span-2">
+                <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  <img
+                    src={learner || "/placeholder.svg"}
+                    width="24"
+                    height="24"
+                    alt="Adaptable Learner"
+                    className="invert"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Adaptable Learner
+                </h3>
+                <p className="text-gray-600 flex-grow">
                   Quick to adapt to new tools, technologies, and frameworks,
                   with a passion for staying up-to-date in the ever-evolving
                   tech landscape.
                 </p>
               </div>
-              <div className="grid gap-1">
-                <img src={communication} width="30" height="30" alt="Logo" />
-                <h3 className="text-xl font-bold">Effective Communicator</h3>
-                <p className="text-muted-foreground">
+
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col md:col-span-2 lg:col-span-2">
+                <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  <img
+                    src={communication || "/placeholder.svg"}
+                    width="24"
+                    height="24"
+                    alt="Effective Communicator"
+                    className="invert"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Effective Communicator
+                </h3>
+                <p className="text-gray-600 flex-grow">
                   Skilled at translating technical concepts into clear and
                   concise language, for non-technical stakeholders to understand
                   project progress and outcomes.
@@ -391,225 +456,335 @@ function Home() {
           </div>
         </section>
 
-        {/* Education Section */}
+        {/* Education Section - Enhanced */}
         <section
           id="education"
-          className="w-full py-12 sm:py-16 md:py-12 lg:py-12 bg-muted"
+          className={`w-full py-16 md:py-24 bg-gray-50 ${
+            isVisible.education ? "animate-fadeIn" : "opacity-0"
+          }`}
         >
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-3">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <div className="inline-block bg-gradient-to-r from-teal-500/10 to-emerald-500/10 px-4 py-1.5 rounded-full">
+                <h2 className="text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-emerald-600">
                   Education
                 </h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Currently have completed my bachelors degree in Computer
-                  Science at the University of Witwatersrand. I have a strong
-                  foundation in mathematics, computer science and software
-                  development principles.
-                </p>
               </div>
+              <div className="h-1 w-20 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full my-2"></div>
+              <p className="max-w-[900px] text-gray-700 md:text-lg leading-relaxed">
+                Currently have completed my bachelors degree in Computer Science
+                at the University of Witwatersrand. I have a strong foundation
+                in mathematics, computer science and software development
+                principles.
+              </p>
             </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-6 py-12 lg:grid-cols-2 lg:gap-12 mr-15">
-              <div className="grid gap-1  ">
-                {/* <img src={wits} width="100" height="100" alt="Logo" /> */}
-                <h3 className="text-xl font-bold">BSc Computer Science</h3>
 
-                <p className="text-muted-foreground font-extrabold">
-                  University of Witwatersrand
-                </p>
-                <p className="text-muted-foreground">2022 - 2024 (Completed)</p>
-                <span className="text-muted-foreground">
-                  <span className="text-muted-foreground font-bold">
-                    Relevant Coursework
-                  </span>
-                  <br />
-                  Mathematics <br />
-                  Applied Mathematics <br />
-                  Data Structures and Algorithms <br />
-                  Database Fundamentals <br />
-                  Computer Networks <br />
-                  Mobile Computing <br />
-                  Software Design <br />
-                  Machine Learning <br />
-                  Analysis of Algorithms <br />
-                </span>
+            <div className="grid md:grid-cols-2 gap-8 mt-12">
+              {/* University Education */}
+              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-full -mr-20 -mt-20"></div>
+
+                <div className="relative z-10">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shadow-md">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-white"
+                      >
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-800">
+                      BSc Computer Science
+                    </h3>
+                  </div>
+
+                  <div className="flex items-center mb-4">
+                    <p className="text-teal-600 font-bold">
+                      University of Witwatersrand
+                    </p>
+                    <span className="mx-2 text-gray-400">•</span>
+                    <p className="text-gray-500">2022 - 2024 (Completed)</p>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-teal-50 to-emerald-50 px-4 py-2 rounded-lg inline-block mb-6">
+                    <span className="font-bold text-gray-700">Average:</span>
+                    <span className="text-teal-600 font-bold ml-2">70+</span>
+                  </div>
+
+                  <div className="mt-6">
+                    <h4 className="font-bold text-gray-700 mb-3">
+                      Relevant Coursework
+                    </h4>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Mathematics
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Applied Mathematics
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Data Structures & Algorithms
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Database Fundamentals
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Computer Networks
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Mobile Computing
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Software Design
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Machine Learning
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Analysis of Algorithms
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="grid gap-1">
-                <h3 className="text-xl font-bold">
-                  National Senior Certificate (IEB){" "}
-                </h3>
-                <p className="text-muted-foreground font-extrabold">
-                  Maragon Mooikloof
-                </p>
-                <span className="text-muted-foreground">
-                  {" "}
-                  <span className="text-muted-foreground font-bold">
-                    Matriculated:
-                  </span>{" "}
-                  2021
-                </span>
-                <span className="text-muted-foreground">
-                  {" "}
-                  <span className="text-muted-foreground font-bold">
-                    Average:
-                  </span>{" "}
-                  77+
-                </span>
-                <span className="text-muted-foreground">
-                  <span className="text-muted-foreground font-bold">
-                    Relevant Coursework
-                  </span>
-                  <br />
-                  Mathematics <br />
-                  Physical Science <br />
-                  Infomation Technology <br />
-                  Dramatic Arts <br />
-                  English HL <br />
-                </span>
+
+              {/* High School Education */}
+              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-full -mr-20 -mt-20"></div>
+
+                <div className="relative z-10">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shadow-md">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-white"
+                      >
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-800">
+                      National Senior Certificate (IEB)
+                    </h3>
+                  </div>
+
+                  <div className="flex items-center mb-4">
+                    <p className="text-teal-600 font-bold">Maragon Mooikloof</p>
+                    <span className="mx-2 text-gray-400">•</span>
+                    <p className="text-gray-500">Matriculated: 2021</p>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-teal-50 to-emerald-50 px-4 py-2 rounded-lg inline-block mb-6">
+                    <span className="font-bold text-gray-700">Average:</span>
+                    <span className="text-teal-600 font-bold ml-2">77+</span>
+                  </div>
+
+                  <div className="mt-2">
+                    <h4 className="font-bold text-gray-700 mb-3">
+                      Relevant Coursework
+                    </h4>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Mathematics
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Physical Science
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Information Technology
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Dramatic Arts
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        English HL
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Projects Section */}
+        {/* Projects Section - Enhanced */}
         <section
           id="projects"
-          className="w-full py-12 sm:py-16 md:py-12 lg:py-12 bg-muted"
+          className={`w-full py-16 md:py-24 bg-white ${
+            isVisible.projects ? "animate-fadeIn" : "opacity-0"
+          }`}
         >
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-3">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <div className="inline-block bg-gradient-to-r from-teal-500/10 to-emerald-500/10 px-4 py-1.5 rounded-full">
+                <h2 className="text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-emerald-600">
                   Projects
                 </h2>
               </div>
+              <div className="h-1 w-20 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full my-2"></div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-6 py-12 lg:grid-cols-1 lg:gap-12 mr-15">
-              <div className="grid gap-4">
-                <h3 className="text-xl font-bold">Campus Safety App</h3>
-                <div className="flex flex-wrap items-start justify-between">
-                  <p className="text-muted-foreground mr-4 w-full md:w-[60%]">
-                    Campus Safety is a state-of-the-art web application designed
-                    to enhance campus security by providing real-time tools and
-                    resources for students, staff, and security personnel. This
-                    innovative platform offers users instant access to emergency
-                    alerts, live incident updates, and direct reporting
-                    features. By incorporating live tracking and real-time
-                    notifications, Campus Safety enables swift communication and
-                    rapid response to safety concerns. Tailored specifically for
-                    campus environments like the University of the
-                    Witswatersrand, the app fosters collaboration between users
-                    and security teams while promoting transparency and
-                    preparedness. With its fully responsive design, Campus
-                    Safety ensures a seamless and user-friendly experience on
-                    any device, keeping users informed and connected at all
-                    times. <br />
-                    Demo accounts are available through the GitHub link
-                    provided.
-                  </p>
-                  <img
-                    src={campusSafety}
-                    width="500"
-                    height="180"
-                    alt="Campus Safety"
-                    className="max-w-full md:w-[35%] mt-4 md:mt-0"
-                  />
-                </div>
-                <div className="flex items-center gap-4 mt-4">
-                  <a
-                    href="https://campus-safety.azurewebsites.net/"
-                    target="_blank"
-                  >
-                    <img
-                      src={website}
-                      width="50"
-                      height="50"
-                      alt="Campus Safety App"
-                      className=" cursor-pointer"
-                    />
-                  </a>
-                  <a
-                    href="https://github.com/ThendoRavi/campus-safety-app.git"
-                    target="_blank"
-                  >
-                    <img
-                      src={github}
-                      width="75"
-                      height="55"
-                      alt="Thendo Ravhengani"
-                      className=" cursor-pointer"
-                    />
-                  </a>
+
+            {/* Project Cards - Redesigned */}
+            <div className="grid gap-8 mt-12">
+              {/* Campus Safety Project */}
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
+                <div className="md:flex">
+                  <div className="md:w-2/3 p-8">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                      Campus Safety App
+                    </h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      Campus Safety is a state-of-the-art web application
+                      designed to enhance campus security by providing real-time
+                      tools and resources for students, staff, and security
+                      personnel. This innovative platform offers users instant
+                      access to emergency alerts, live incident updates, and
+                      direct reporting features. By incorporating live tracking
+                      and real-time notifications, Campus Safety enables swift
+                      communication and rapid response to safety concerns.
+                    </p>
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      Tailored specifically for campus environments like the
+                      University of the Witswatersrand, the app fosters
+                      collaboration between users and security teams while
+                      promoting transparency and preparedness. With its fully
+                      responsive design, Campus Safety ensures a seamless and
+                      user-friendly experience on any device, keeping users
+                      informed and connected at all times.
+                    </p>
+                    <p className="text-gray-500 italic mb-6">
+                      Demo accounts are available through the GitHub link
+                      provided.
+                    </p>
+
+                    <div className="flex items-center gap-4">
+                      <a
+                        href="https://campus-safety.azurewebsites.net/"
+                        target="_blank"
+                        className="flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                        rel="noreferrer"
+                      >
+                        <ExternalLink size={18} />
+                        View Live
+                      </a>
+                      <a
+                        href="https://github.com/ThendoRavi/campus-safety-app.git"
+                        target="_blank"
+                        className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+                        rel="noreferrer"
+                      >
+                        <Github size={18} />
+                        GitHub
+                      </a>
+                    </div>
+                  </div>
+                  <div className="md:w-1/3">
+                    <div className="h-full flex items-center justify-center bg-gray-50 p-4">
+                      <img
+                        src={campusSafety || "/placeholder.svg"}
+                        alt="Campus Safety App"
+                        className="w-full rounded-lg shadow-lg object-contain"
+                        style={{ maxHeight: "400px" }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="grid gap-4">
-                <h3 className="text-xl font-bold">
-                  Commongrounds Residential Management
-                </h3>
-                <div className="flex flex-wrap items-start justify-between">
-                  <p className="text-muted-foreground mr-4 w-full md:w-[60%]">
-                    Commongrounds is a powerful online platform designed to
-                    simplify property management for sectional title bodies
-                    corporate. With a comprehensive suite of features tailored
-                    to their unique needs, it empowers governing entities to
-                    manage tasks efficiently while fostering transparent
-                    communication with residents. Commongrounds offers a fully
-                    responsive design, delivering a smooth and user-friendly
-                    experience across all devices and screen sizes. <br />
-                    Further information & demo accounts are available through
-                    the GitHub link provided.
-                  </p>
-                  <img
-                    src={commongrounds}
-                    width="500"
-                    height="180"
-                    alt="Common Grounds"
-                    className="max-w-full md:w-[35%] mt-4 md:mt-0"
-                  />
-                </div>
-                <div className="flex items-center gap-4 mt-4">
-                  <a
-                    href="https://common-grounds-app.onrender.com/ "
-                    target="_blank"
-                  >
-                    <img
-                      src={website}
-                      width="50"
-                      height="50"
-                      alt="CommonGrounds App"
-                      className=" cursor-pointer"
-                    />
-                  </a>
-                  <a
-                    href="https://github.com/ThendoRavi/common-grounds-app.git"
-                    target="_blank"
-                  >
-                    <img
-                      src={github}
-                      width="75"
-                      height="55"
-                      alt="Thendo Ravhengani"
-                      className=" cursor-pointer"
-                    />
-                  </a>
+              {/* Commongrounds Project */}
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
+                <div className="md:flex">
+                  <div className="md:w-2/3 p-8">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                      Commongrounds Residential Management
+                    </h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      Commongrounds is a powerful online platform designed to
+                      simplify property management for sectional title bodies
+                      corporate. With a comprehensive suite of features tailored
+                      to their unique needs, it empowers governing entities to
+                      manage tasks efficiently while fostering transparent
+                      communication with residents.
+                    </p>
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      Commongrounds offers a fully responsive design, delivering
+                      a smooth and user-friendly experience across all devices
+                      and screen sizes.
+                    </p>
+                    <p className="text-gray-500 italic mb-6">
+                      Further information & demo accounts are available through
+                      the GitHub link provided.
+                    </p>
+
+                    <div className="flex items-center gap-4">
+                      <a
+                        href="https://common-grounds-app.onrender.com/"
+                        target="_blank"
+                        className="flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                        rel="noreferrer"
+                      >
+                        <ExternalLink size={18} />
+                        View Live
+                      </a>
+                      <a
+                        href="https://github.com/ThendoRavi/common-grounds-app.git"
+                        target="_blank"
+                        className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+                        rel="noreferrer"
+                      >
+                        <Github size={18} />
+                        GitHub
+                      </a>
+                    </div>
+                  </div>
+                  <div className="md:w-1/3">
+                    <div className="h-full flex items-center justify-center bg-gray-50 p-4">
+                      <img
+                        src={commongrounds || "/placeholder.svg"}
+                        alt="Commongrounds App"
+                        className="w-full rounded-lg shadow-lg object-contain"
+                        style={{ maxHeight: "400px" }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="grid gap-4">
-                <h3 className="text-xl font-bold">
-                  Fat Guys - 3D Platformer Game
-                </h3>
-                <div className="flex flex-wrap items-start justify-between">
-                  <p className="text-muted-foreground mr-4 w-full md:w-[60%]">
-                    <strong>Fat Guys</strong> is a 3D platformer game, inspired
-                    by <em>Fall Guys</em>, developed using Three.js. It
-                    challenges players to race against the clock while
-                    navigating dynamic and visually engaging levels.
-                    <br />
-                    <br />
-                    <strong>Key Features:</strong>
-                    <ul>
+
+              {/* Fat Guys Project */}
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
+                <div className="md:flex">
+                  <div className="md:w-2/3 p-8">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                      Fat Guys - 3D Platformer Game
+                    </h3>
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      <strong>Fat Guys</strong> is a 3D platformer game,
+                      inspired by <em>Fall Guys</em>, developed using Three.js.
+                      It challenges players to race against the clock while
+                      navigating dynamic and visually engaging levels.
+                    </p>
+
+                    <h4 className="font-bold text-gray-700 mb-2">
+                      Key Features:
+                    </h4>
+                    <ul className="list-disc pl-5 mb-6 space-y-1 text-gray-600">
                       <li>
                         <strong>Timer and Best-Time Tracking:</strong>{" "}
                         Encourages competitive play by rewarding fast completion
@@ -626,123 +801,216 @@ function Home() {
                         Blender.
                       </li>
                       <li>
-                        <strong>Hierarchical Modeling:</strong> Ensures complex
-                        movements and interactions run smoothly.
-                      </li>
-                      <li>
                         <strong>
                           Dynamic Lighting and Textured Obstacles:
                         </strong>{" "}
                         Combines ambient, directional, and point lighting with
-                        detailed textures for an immersive visual experience.
+                        detailed textures.
                       </li>
                       <li>
                         <strong>Particle System:</strong> Adds atmospheric
                         effects and dramatic respawn animations.
                       </li>
-                      <li>
-                        <strong>Minimap and Volume Control:</strong> Enhances
-                        navigation and allows players to customize their audio
-                        experience.
-                      </li>
                     </ul>
-                    The game prioritizes polished mechanics, creative gameplay,
-                    and an engaging user experience, blending technical
-                    innovation with fun and competitive elements.
-                  </p>
-                  <img
-                    src={fatguys}
-                    width="500"
-                    height="180"
-                    alt="Fat Guys"
-                    className="max-w-full md:w-[35%] mt-4 md:mt-0"
-                  />
+
+                    <div className="flex items-center gap-4">
+                      <a
+                        href="https://lamp.ms.wits.ac.za/~schickentendies/"
+                        target="_blank"
+                        className="flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                        rel="noreferrer"
+                      >
+                        <ExternalLink size={18} />
+                        Play Game
+                      </a>
+                      <a
+                        href="https://github.com/ThendoRavi/fat-guys.git"
+                        target="_blank"
+                        className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+                        rel="noreferrer"
+                      >
+                        <Github size={18} />
+                        GitHub
+                      </a>
+                    </div>
+                  </div>
+                  <div className="md:w-1/3">
+                    <div className="h-full flex items-center justify-center bg-gray-50 p-4">
+                      <img
+                        src={fatguys || "/placeholder.svg"}
+                        alt="Fat Guys Game"
+                        className="w-full rounded-lg shadow-lg object-contain"
+                        style={{ maxHeight: "400px" }}
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-4 mt-4">
-                  <a
-                    href="https://lamp.ms.wits.ac.za/~schickentendies/"
-                    target="_blank"
-                  >
-                    <img
-                      src={website}
-                      width="50"
-                      height="50"
-                      alt="Fat Guys Game"
-                      className=" cursor-pointer"
-                    />
-                  </a>
-                  <a
-                    href="https://github.com/ThendoRavi/fat-guys.git"
-                    target="_blank"
-                  >
-                    <img
-                      src={github}
-                      width="75"
-                      height="55"
-                      alt="Thendo Ravhengani"
-                      className=" cursor-pointer"
-                    />
-                  </a>
+              </div>
+              {/* Campus Safety Project */}
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
+                <div className="md:flex">
+                  <div className="md:w-2/3 p-8">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                      WITS SDASM Website
+                    </h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      Wits SDASM Website is a dynamic and purpose-driven
+                      platform designed to serve the Seventh-day Adventist
+                      Student Movement at the University of the Witwatersrand.
+                      Built to foster spiritual growth, community engagement,
+                      and accessibility to faith-based resources, the site acts
+                      as a central hub for both members and visitors.
+                    </p>
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      The website features dedicated pages for church services,
+                      executive committee profiles, and active subcommittees,
+                      offering insight into the structure and values of the
+                      organization. It also includes a thoughtfully curated
+                      Resource Centre—a collection of devotionals, Bible study
+                      guides, and wellness programs tailored to enrich the
+                      spiritual journey of students.
+                    </p>
+                    <p className="text-gray-500 italic mb-6">
+                      Built using WordPress, the site leverages its flexibility
+                      and user-friendly interface to deliver a modern, easily
+                      maintainable platform.
+                    </p>
+
+                    <div className="flex items-center gap-4">
+                      <a
+                        href="https://witssdasm.org.za"
+                        target="_blank"
+                        className="flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                        rel="noreferrer"
+                      >
+                        <ExternalLink size={18} />
+                        View Live
+                      </a>
+                    </div>
+                  </div>
+                  <div className="md:w-1/3">
+                    <div className="h-full flex items-center justify-center bg-gray-50 p-4">
+                      <img
+                        src={witssdasm || "/placeholder.svg"}
+                        alt="Campus Safety App"
+                        className="w-full rounded-lg shadow-lg object-contain"
+                        style={{ maxHeight: "400px" }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Contact Section */}
+        {/* Contact Section - Enhanced */}
         <section
           id="contact"
-          className="w-full py-12 sm:py-16 md:py-12 lg:py-12 bg-muted"
+          className={`w-full py-16 md:py-24 bg-gray-50 ${
+            isVisible.contact ? "animate-fadeIn" : "opacity-0"
+          }`}
         >
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-3">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <div className="inline-block bg-gradient-to-r from-teal-500/10 to-emerald-500/10 px-4 py-1.5 rounded-full">
+                <h2 className="text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-emerald-600">
                   Contact Me
                 </h2>
               </div>
+              <div className="h-1 w-20 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full my-2"></div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-6 py-12 lg:grid-cols-2 lg:gap-12 mr-15">
-              <div className="grid gap-1">
-                <div className="flex items-center">
-                  <img
-                    src={location}
-                    width="35"
-                    height="15"
-                    alt="Thendo Ravhengani"
-                    className=" cursor-pointer mr-2"
-                  />
-                  <h3 className="text-xl font-bold">Location</h3>
+
+            <div className="max-w-3xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow flex items-center">
+                  <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-16 h-16 rounded-full flex items-center justify-center mr-6 shadow-md">
+                    <img
+                      src={location || "/placeholder.svg"}
+                      width="30"
+                      height="30"
+                      alt="Location"
+                      className="invert"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      Location
+                    </h3>
+                    <p className="text-gray-600">Johannesburg, South Africa</p>
+                  </div>
                 </div>
-                <p className="text-muted-foreground">
-                  Johannesburg, South Africa
-                </p>
+
+                <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow flex items-center">
+                  <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-16 h-16 rounded-full flex items-center justify-center mr-6 shadow-md">
+                    <img
+                      src={email || "/placeholder.svg"}
+                      width="30"
+                      height="30"
+                      alt="Email"
+                      className="invert"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      Email
+                    </h3>
+                    <a
+                      href="mailto:thendorav@gmail.com"
+                      className="text-teal-600 hover:underline underline-offset-4 font-medium"
+                    >
+                      thendorav@gmail.com
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="grid gap-1">
-                <div className="flex items-center">
-                  <img
-                    src={email}
-                    width="35"
-                    height="15"
-                    alt="Thendo Ravhengani"
-                    className=" cursor-pointer mr-2"
-                  />
-                  <h3 className="text-xl font-bold">Email</h3>
-                </div>
-                <p className="text-muted-foreground">
-                  <a
-                    href="mailto:thendorav@gmail.com"
-                    className="hover:underline underline-offset-4"
-                  >
-                    thendorav@gmail.com
-                  </a>
-                </p>
+
+              <div className="mt-12 text-center">
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity font-medium"
+                >
+                  Download CV
+                  <ChevronRight size={18} />
+                </a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <Footer />
+
+      {/* Add CSS for animations */}
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fadeIn {
+          animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-pulse {
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+          0%,
+          100% {
+            opacity: 0.2;
+          }
+          50% {
+            opacity: 0.5;
+          }
+        }
+      `}</style>
     </div>
   );
 }
