@@ -1341,7 +1341,9 @@ function Home() {
 
               <div className="mt-12 text-center">
                 <a
-                  href="#"
+                  href="/cv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity font-medium"
                 >
                   Download CV
