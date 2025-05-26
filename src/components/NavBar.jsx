@@ -40,7 +40,15 @@ export default function NavBar() {
       setScrolled(window.scrollY > 20);
       
       // Determine active section based on scroll position
-      const sections = ['home', 'about', 'education', 'projects', 'contact'];
+      const sections = [
+        "home",
+        "about",
+        "education",
+        "projects",
+        "awards",
+        "experience",
+        "contact",
+      ];
       
       for (const section of sections) {
         const element = document.getElementById(section);
