@@ -59,6 +59,8 @@ function Home() {
     education: false,
     projects: false,
     contact: false,
+    awards: false,
+    experience: false,
   });
 
   useEffect(() => {
@@ -84,7 +86,7 @@ function Home() {
       observerOptions
     );
 
-    const sections = ["about", "education", "projects", "contact"];
+    const sections = ["about", "education", "projects", "contact", "awards", "experience"];
     sections.forEach((section) => {
       const element = document.getElementById(section);
       if (element) observer.observe(element);
