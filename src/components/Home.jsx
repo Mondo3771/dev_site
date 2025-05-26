@@ -3,7 +3,13 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import { ReactTyped } from "react-typed";
 import { useState, useEffect } from "react";
-import { ChevronRight, ExternalLink, Github,Youtube, YoutubeIcon } from "lucide-react";
+import {
+  ChevronRight,
+  ExternalLink,
+  Github,
+  Youtube,
+  YoutubeIcon,
+} from "lucide-react";
 
 // Import all your existing assets
 import hero from "../assets/KabeloPic.JPG";
@@ -24,7 +30,7 @@ import campusSafety from "../assets/campusSafety.png";
 import commongrounds from "../assets/commongrounds.png";
 import Blocky from "../assets/Bock.png";
 
-// set these ones to sernegy , Univents , Serene and BlockyCars , 
+// set these ones to sernegy , Univents , Serene and BlockyCars ,
 import email from "../assets/email.png";
 import location from "../assets/placeholder.png";
 import java from "../assets/java.svg";
@@ -601,7 +607,7 @@ function Home() {
                       </svg>
                     </div>
                     <h3 className="text-2xl font-bold text-gray-800">
-                      National Senior Certificate (IEB)
+                      National Senior Certificate
                     </h3>
                   </div>
 
@@ -735,196 +741,535 @@ function Home() {
                   </div>
                 </div>
               </div>
-
-              {/* Commongrounds Project */}
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
-                <div className="md:flex">
-                  <div className="md:w-2/3 p-8">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                      Commongrounds Residential Management
-                    </h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      Commongrounds is a powerful online platform designed to
-                      simplify property management for sectional title bodies
-                      corporate. With a comprehensive suite of features tailored
-                      to their unique needs, it empowers governing entities to
-                      manage tasks efficiently while fostering transparent
-                      communication with residents.
-                    </p>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      Commongrounds offers a fully responsive design, delivering
-                      a smooth and user-friendly experience across all devices
-                      and screen sizes.
-                    </p>
-                    <p className="text-gray-500 italic mb-6">
-                      Further information & demo accounts are available through
-                      the GitHub link provided.
-                    </p>
-
-                    <div className="flex items-center gap-4">
-                      <a
-                        href="https://common-grounds-app.onrender.com/"
-                        target="_blank"
-                        className="flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
-                        rel="noreferrer"
-                      >
-                        <ExternalLink size={18} />
-                        View Live
-                      </a>
-                      <a
-                        href="https://github.com/ThendoRavi/common-grounds-app.git"
-                        target="_blank"
-                        className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
-                        rel="noreferrer"
-                      >
-                        <Github size={18} />
-                        GitHub
-                      </a>
-                    </div>
-                  </div>
-                  <div className="md:w-1/3">
-                    <div className="h-full flex items-center justify-center bg-gray-50 p-4">
-                      <img
-                        src={commongrounds || "/placeholder.svg"}
-                        alt="Commongrounds App"
-                        className="w-full rounded-lg shadow-lg object-contain"
-                        style={{ maxHeight: "400px" }}
-                      />
-                    </div>
-                  </div>
+            </div>
+          </div>
+        </section>
+        {/* Awards Section - Styled like About */}
+        <section
+          id="awards"
+          className={`w-full py-16 md:py-24 bg-white ${
+            isVisible.awards ? "animate-fadeIn" : "opacity-0"
+          }`}
+        >
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <div className="inline-block bg-gradient-to-r from-teal-500/10 to-emerald-500/10 px-4 py-1.5 rounded-full">
+                <h2 className="text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-emerald-600">
+                  Awards & Achievements
+                </h2>
+              </div>
+              <div className="h-1 w-20 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full my-2"></div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col">
+                <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  {/* You can use an award icon here */}
+                  <svg
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-white"
+                  >
+                    <circle cx="12" cy="8" r="7" />
+                    <path d="M8.21 13.89l-1.42 4.24a1 1 0 0 0 1.3 1.3l4.24-1.42" />
+                    <path d="M15.79 13.89l1.42 4.24a1 1 0 0 1-1.3 1.3l-4.24-1.42" />
+                  </svg>
                 </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Dean's List
+                </h3>
+                <p className="text-gray-600 flex-grow">
+                  Awarded for outstanding academic performance at University of
+                  Witwatersrand (2023).
+                </p>
+              </div>
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col">
+                <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  {/* Another award icon or the same */}
+                  <svg
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-white"
+                  >
+                    <circle cx="12" cy="8" r="7" />
+                    <path d="M8.21 13.89l-1.42 4.24a1 1 0 0 0 1.3 1.3l4.24-1.42" />
+                    <path d="M15.79 13.89l1.42 4.24a1 1 0 0 1-1.3 1.3l-4.24-1.42" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Top Achiever in Mathematics
+                </h3>
+                <p className="text-gray-600 flex-grow">
+                  Recognized as the top-performing student in Mathematics at
+                  George Campbell High School of Technology (2021).
+                </p>
+              </div>
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col">
+                <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  {/* Another award icon or the same */}
+                  <svg
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-white"
+                  >
+                    <circle cx="12" cy="8" r="7" />
+                    <path d="M8.21 13.89l-1.42 4.24a1 1 0 0 0 1.3 1.3l4.24-1.42" />
+                    <path d="M15.79 13.89l1.42 4.24a1 1 0 0 1-1.3 1.3l-4.24-1.42" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Top Achiever in Physics
+                </h3>
+                <p className="text-gray-600 flex-grow">
+                  Recognized as the top-performing student in Physics at George
+                  Campbell High School of Technology (2021).
+                </p>
               </div>
 
-              {/* Fat Guys Project */}
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
-                <div className="md:flex">
-                  <div className="md:w-2/3 p-8">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                      Fat Guys - 3D Platformer Game
-                    </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      <strong>Fat Guys</strong> is a 3D platformer game,
-                      inspired by <em>Fall Guys</em>, developed using Three.js.
-                      It challenges players to race against the clock while
-                      navigating dynamic and visually engaging levels.
-                    </p>
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col">
+                <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  {/* Another award icon or the same */}
+                  <svg
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-white"
+                  >
+                    <circle cx="12" cy="8" r="7" />
+                    <path d="M8.21 13.89l-1.42 4.24a1 1 0 0 0 1.3 1.3l4.24-1.42" />
+                    <path d="M15.79 13.89l1.42 4.24a1 1 0 0 1-1.3 1.3l-4.24-1.42" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Top Achiever in Engineering Graphics and Design
+                </h3>
+                <p className="text-gray-600 flex-grow">
+                  Recognized as the top-performing student in EGD at George
+                  Campbell High School of Technology (2021).
+                </p>
+              </div>
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col">
+                <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  {/* Another award icon or the same */}
+                  <svg
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-white"
+                  >
+                    <circle cx="12" cy="8" r="7" />
+                    <path d="M8.21 13.89l-1.42 4.24a1 1 0 0 0 1.3 1.3l4.24-1.42" />
+                    <path d="M15.79 13.89l1.42 4.24a1 1 0 0 1-1.3 1.3l-4.24-1.42" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Best Software Development Project
+                </h3>
+                <p className="text-gray-600 flex-grow">
+                  Recognized for the best software development project in the
+                  Computer Science department at the University of Witwatersrand
+                  2024.
+                </p>
+              </div>
 
-                    <h4 className="font-bold text-gray-700 mb-2">
-                      Key Features:
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col">
+                <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  {/* Another award icon or the same */}
+                  <svg
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-white"
+                  >
+                    <circle cx="12" cy="8" r="7" />
+                    <path d="M8.21 13.89l-1.42 4.24a1 1 0 0 0 1.3 1.3l4.24-1.42" />
+                    <path d="M15.79 13.89l1.42 4.24a1 1 0 0 1-1.3 1.3l-4.24-1.42" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Top 3 Developed games in Computer Graphics and Visualisation
+                </h3>
+                <p className="text-gray-600 flex-grow">
+                  Recognized as one of the top 3 developed games in the Computer
+                  Graphics and Visualisation course at the University of
+                  Witwatersrand (2024).
+                </p>
+              </div>
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col">
+                <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  {/* Another award icon or the same */}
+                  <svg
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-white"
+                  >
+                    <circle cx="12" cy="8" r="7" />
+                    <path d="M8.21 13.89l-1.42 4.24a1 1 0 0 0 1.3 1.3l4.24-1.42" />
+                    <path d="M15.79 13.89l1.42 4.24a1 1 0 0 1-1.3 1.3l-4.24-1.42" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Top 3 Achiever
+                </h3>
+                <p className="text-gray-600 flex-grow">
+                  Recognized as one of the top 3 achievers Academically at
+                  George Campbell High School of Technology (2021).
+                </p>
+              </div>
+              {/* Add more awards as needed */}
+            </div>
+          </div>
+        </section>
+        {/* Contact Section - Enhanced */}
+
+        {/* Experience Section - Styled like Education */}
+        <section
+          id="experience"
+          className={`w-full py-16 md:py-24 bg-gray-50 ${
+            isVisible.experience ? "animate-fadeIn" : "opacity-0"
+          }`}
+        >
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <div className="inline-block bg-gradient-to-r from-teal-500/10 to-emerald-500/10 px-4 py-1.5 rounded-full">
+                <h2 className="text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-emerald-600">
+                  Experience
+                </h2>
+              </div>
+              <div className="h-1 w-20 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full my-2"></div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 mt-12">
+              {/* Serene */}
+              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-full -mr-20 -mt-20"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shadow-md">
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-white"
+                      >
+                        <rect x="2" y="7" width="20" height="14" rx="2" />
+                        <path d="M16 3v4" />
+                        <path d="M8 3v4" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-800">
+                      Frontend Developer (Mobile)
+                    </h3>
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <p className="text-teal-600 font-bold">Serene</p>
+                    <span className="mx-2 text-gray-400">•</span>
+                    <p className="text-gray-500">Mar 2023 – Jun 2023</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-teal-50 to-emerald-50 px-4 py-2 rounded-lg inline-block mb-6">
+                    <span className="font-bold text-gray-700">Role:</span>
+                    <span className="text-teal-600 font-bold ml-2">
+                      Frontend Developer (Android)
+                    </span>
+                  </div>
+                  <div className="mt-2">
+                    <h4 className="font-bold text-gray-700 mb-3">
+                      Key Achievements
                     </h4>
-                    <ul className="list-disc pl-5 mb-6 space-y-1 text-gray-600">
+                    <ul className="list-disc pl-5 space-y-1 text-gray-700">
                       <li>
-                        <strong>Timer and Best-Time Tracking:</strong>{" "}
-                        Encourages competitive play by rewarding fast completion
-                        times.
+                        Developed a clean and intuitive mobile interface using
+                        Android Studio.
                       </li>
                       <li>
-                        <strong>Lives System and Level Unlocking:</strong>{" "}
-                        Offers progression-based gameplay for an engaging
-                        experience.
+                        Styled and organized the layout to ensure responsiveness
+                        and ease of use.
                       </li>
                       <li>
-                        <strong>Rigged and Animated Player Models:</strong>{" "}
-                        Unique character designs fully created and animated in
-                        Blender.
+                        Collaborated with backend developers to integrate APIs
+                        and data flow.
                       </li>
                       <li>
-                        <strong>
-                          Dynamic Lighting and Textured Obstacles:
-                        </strong>{" "}
-                        Combines ambient, directional, and point lighting with
-                        detailed textures.
-                      </li>
-                      <li>
-                        <strong>Particle System:</strong> Adds atmospheric
-                        effects and dramatic respawn animations.
+                        Focused on UI/UX consistency and design polish across
+                        screens.
                       </li>
                     </ul>
-
-                    <div className="flex items-center gap-4">
-                      <a
-                        href="https://lamp.ms.wits.ac.za/~schickentendies/"
-                        target="_blank"
-                        className="flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
-                        rel="noreferrer"
-                      >
-                        <ExternalLink size={18} />
-                        Play Game
-                      </a>
-                      <a
-                        href="https://github.com/ThendoRavi/fat-guys.git"
-                        target="_blank"
-                        className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
-                        rel="noreferrer"
-                      >
-                        <Github size={18} />
-                        GitHub
-                      </a>
-                    </div>
-                  </div>
-                  <div className="md:w-1/3">
-                    <div className="h-full flex items-center justify-center bg-gray-50 p-4">
-                      <img
-                        src={fatguys || "/placeholder.svg"}
-                        alt="Fat Guys Game"
-                        className="w-full rounded-lg shadow-lg object-contain"
-                        style={{ maxHeight: "400px" }}
-                      />
-                    </div>
                   </div>
                 </div>
               </div>
-              {/* Campus Safety Project */}
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
-                <div className="md:flex">
-                  <div className="md:w-2/3 p-8">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                      WITS SDASM Website
-                    </h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      Wits SDASM Website is a dynamic and purpose-driven
-                      platform designed to serve the Seventh-day Adventist
-                      Student Movement at the University of the Witwatersrand.
-                      Built to foster spiritual growth, community engagement,
-                      and accessibility to faith-based resources, the site acts
-                      as a central hub for both members and visitors.
-                    </p>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      The website features dedicated pages for church services,
-                      executive committee profiles, and active subcommittees,
-                      offering insight into the structure and values of the
-                      organization. It also includes a thoughtfully curated
-                      Resource Centre—a collection of devotionals, Bible study
-                      guides, and wellness programs tailored to enrich the
-                      spiritual journey of students.
-                    </p>
-                    <p className="text-gray-500 italic mb-6">
-                      Built using WordPress, the site leverages its flexibility
-                      and user-friendly interface to deliver a modern, easily
-                      maintainable platform.
-                    </p>
 
-                    <div className="flex items-center gap-4">
-                      <a
-                        href="https://witssdasm.org.za"
-                        target="_blank"
-                        className="flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
-                        rel="noreferrer"
+              {/* Univents */}
+              {/* Blocky Cars */}
+              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-full -mr-20 -mt-20"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shadow-md">
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-white"
                       >
-                        <ExternalLink size={18} />
-                        View Live
-                      </a>
+                        <rect x="2" y="7" width="20" height="14" rx="2" />
+                        <path d="M16 3v4" />
+                        <path d="M8 3v4" />
+                      </svg>
                     </div>
+                    <h3 className="text-2xl font-bold text-gray-800">
+                      Game Developer & Team Lead
+                    </h3>
                   </div>
-                  <div className="md:w-1/3">
-                    <div className="h-full flex items-center justify-center bg-gray-50 p-4">
-                      <img
-                        src={witssdasm || "/placeholder.svg"}
-                        alt="Campus Safety App"
-                        className="w-full rounded-lg shadow-lg object-contain"
-                        style={{ maxHeight: "400px" }}
-                      />
+                  <div className="flex items-center mb-4">
+                    <p className="text-teal-600 font-bold">Blocky Cars</p>
+                    <span className="mx-2 text-gray-400">•</span>
+                    <p className="text-gray-500">June 2024 - November 2024</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-teal-50 to-emerald-50 px-4 py-2 rounded-lg inline-block mb-6">
+                    <span className="font-bold text-gray-700">Role:</span>
+                    <span className="text-teal-600 font-bold ml-2">
+                      Game Developer & Project Lead
+                    </span>
+                  </div>
+                  <div className="mt-2">
+                    <h4 className="font-bold text-gray-700 mb-3">
+                      Key Contributions
+                    </h4>
+                    <ul className="list-disc pl-5 space-y-1 text-gray-700">
+                      <li>
+                        Conceptualized the game idea and led development from
+                        start to finish.
+                      </li>
+                      <li>
+                        Created custom racing maps in Minecraft and exported
+                        them into JavaScript.
+                      </li>
+                      <li>
+                        Textured game environments and implemented dynamic
+                        lighting using Three.js.
+                      </li>
+                      <li>
+                        Managed team workflow and version control processes.
+                      </li>
+                      <li>
+                        Led discussions on multiplayer, time-trial, and
+                        optimization features.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              {/* Univents */}
+              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 relative overflow-hidden mb-10">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-full -mr-20 -mt-20"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shadow-md">
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-white"
+                      >
+                        <rect x="2" y="7" width="20" height="14" rx="2" />
+                        <path d="M16 3v4" />
+                        <path d="M8 3v4" />
+                      </svg>
                     </div>
+                    <h3 className="text-2xl font-bold text-gray-800">
+                      Frontend Developer (Events Page)
+                    </h3>
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <p className="text-teal-600 font-bold">Univents</p>
+                    <span className="mx-2 text-gray-400">•</span>
+                    <p className="text-gray-500">Jul 2024 – Nov 2024</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-teal-50 to-emerald-50 px-4 py-2 rounded-lg inline-block mb-6">
+                    <span className="font-bold text-gray-700">Role:</span>
+                    <span className="text-teal-600 font-bold ml-2">
+                      Frontend Developer & Integration
+                    </span>
+                  </div>
+                  <div className="mt-2">
+                    <h4 className="font-bold text-gray-700 mb-3">
+                      Key Contributions
+                    </h4>
+                    <ul className="list-disc pl-5 space-y-1 text-gray-700">
+                      <li>
+                        Led the frontend development of the Events page,
+                        enabling users to browse and pay for events.
+                      </li>
+                      <li>
+                        Implemented and integrated the payment method for event
+                        purchases.
+                      </li>
+                      <li>
+                        Built integration with another group for the
+                        alert/notification section in the app.
+                      </li>
+                      <li>
+                        Conducted thorough testing before deployment to ensure a
+                        smooth user experience.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-gray-50 to-gray-200 rounded-full -mr-20 -mt-20"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gradient-to-br from-gray-400 to-gray-600 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shadow-md">
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-white"
+                      >
+                        <rect x="3" y="4" width="18" height="16" rx="2" />
+                        <path d="M8 20v-4h8v4" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-800">
+                      Technical Lab Assistant
+                    </h3>
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <p className="text-gray-700 font-bold">MSL Lab</p>
+                    <span className="mx-2 text-gray-400">•</span>
+                    <p className="text-gray-500">March 2023 - September 2023</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-gray-50 to-gray-200 px-4 py-2 rounded-lg inline-block mb-6">
+                    <span className="font-bold text-gray-700">Role:</span>
+                    <span className="text-gray-700 font-bold ml-2">
+                      Troubleshooting & Support
+                    </span>
+                  </div>
+                  <div className="mt-2">
+                    <h4 className="font-bold text-gray-700 mb-3">
+                      Key Responsibilities
+                    </h4>
+                    <ul className="list-disc pl-5 space-y-1 text-gray-700">
+                      <li>
+                        Troubleshot and fixed computers in the lab, resolving
+                        hardware and software issues.
+                      </li>
+                      <li>
+                        Updated software and installed necessary applications on
+                        lab machines.
+                      </li>
+                      <li>
+                        Assisted with general maintenance and technical support
+                        for students and staff.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              {/* Synergy */}
+              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-full -mr-20 -mt-20"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gradient-to-br from-blue-500 to-indigo-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shadow-md">
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-white"
+                      >
+                        <path d="M3 6h18M3 12h18M3 18h18" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-800">
+                      Full Stack Developer (Testing & Deployment Lead)
+                    </h3>
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <p className="text-blue-600 font-bold">Synergy</p>
+                    <span className="mx-2 text-gray-400">•</span>
+                    <p className="text-gray-500">March 2023 – May 2023</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-4 py-2 rounded-lg inline-block mb-6">
+                    <span className="font-bold text-gray-700">Role:</span>
+                    <span className="text-blue-600 font-bold ml-2">
+                      Backend, Testing & Azure Deployment
+                    </span>
+                  </div>
+                  <div className="mt-2">
+                    <h4 className="font-bold text-gray-700 mb-3">
+                      Key Contributions
+                    </h4>
+                    <ul className="list-disc pl-5 space-y-1 text-gray-700">
+                      <li>
+                        Led testing for the entire application to ensure
+                        reliability and performance.
+                      </li>
+                      <li>
+                        Set up and managed the CI/CD pipeline using GitHub
+                        Actions for automated deployment.
+                      </li>
+                      <li>
+                        Designed and implemented all backend APIs and managed
+                        the database.
+                      </li>
+                      <li>Developed user login and signup functionality.</li>
+                      <li>
+                        Connected and deployed the application to Microsoft
+                        Azure.
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -932,7 +1277,6 @@ function Home() {
           </div>
         </section>
 
-        {/* Contact Section - Enhanced */}
         <section
           id="contact"
           className={`w-full py-16 md:py-24 bg-gray-50 ${
@@ -987,7 +1331,7 @@ function Home() {
                       href="mailto:thendorav@gmail.com"
                       className="text-teal-600 hover:underline underline-offset-4 font-medium"
                     >
-                      thendorav@gmail.com
+                      Kabelomrn@gmail.com
                     </a>
                   </div>
                 </div>

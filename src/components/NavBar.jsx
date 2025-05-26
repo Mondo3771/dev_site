@@ -75,7 +75,7 @@ export default function NavBar() {
           }`}>
             <img
               src={hero || "/placeholder.svg"}
-              alt="Thendo Ravhengani"
+              alt="Kabelo Mojalefa Rankaone"
               className="w-full h-full object-cover"
             />
           </div>
@@ -101,7 +101,7 @@ export default function NavBar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-1">
-          {['home', 'about', 'education', 'projects', 'contact'].map((section) => (
+          {['home', 'about', 'education', 'projects','awards','experience', 'contact'].map((section) => (
             <a
               key={section}
               href={`#${section}`}
@@ -120,7 +120,7 @@ export default function NavBar() {
           ))}
           
           <a
-            href="/cv.pdf"
+            href="/CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-2 px-4 py-2 text-sm font-medium bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors flex items-center gap-1"
