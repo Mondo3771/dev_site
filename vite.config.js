@@ -3,5 +3,6 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // This should match your GitHub Pages repository name
+  base: "/", // This should match your GitHub Pages repository name
+  assetsInclude: ["**/*.JPG"],
 });

@@ -3,10 +3,10 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import { ReactTyped } from "react-typed";
 import { useState, useEffect } from "react";
-import { ChevronRight, ExternalLink, Github } from "lucide-react";
+import { ChevronRight, ExternalLink, Github,Youtube, YoutubeIcon } from "lucide-react";
 
 // Import all your existing assets
-import hero from "../assets/THero.png";
+import hero from "../assets/KabeloPic.JPG";
 import coder from "../assets/code-slash.svg";
 import fix from "../assets/repair.png";
 import webDev from "../assets/cloud.svg";
@@ -22,6 +22,9 @@ import mongodb from "../assets/mongodbT.svg";
 import azure from "../assets/azure.svg";
 import campusSafety from "../assets/campusSafety.png";
 import commongrounds from "../assets/commongrounds.png";
+import Blocky from "../assets/Bock.png";
+
+// set these ones to sernegy , Univents , Serene and BlockyCars , 
 import email from "../assets/email.png";
 import location from "../assets/placeholder.png";
 import java from "../assets/java.svg";
@@ -156,14 +159,15 @@ function Home() {
                     />
                   </div>
                   <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
-                    Thendo Ravhengani
+                    Kabelo Mojalefa Rankoane
                   </h1>
                   <div className="h-1 w-20 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full my-4"></div>
                   <p className="text-lg text-gray-700 max-w-[600px] leading-relaxed">
                     Computer Science graduate from the University of
                     Witwatersrand. Currently pursuing my honours degree.
-                    <br />I have a passion for software development and cloud
-                    computing.
+                    <br />I have a great intrest in Machine Learning and
+                    Artificial Intelligence, and I am always looking for new to
+                    intergrate those intrests into my projects.
                   </p>
 
                   <div className="flex flex-row items-center gap-4 mt-6">
@@ -323,13 +327,19 @@ function Home() {
               </div>
               <div className="h-1 w-20 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full my-2"></div>
               <p className="max-w-[900px] text-gray-700 md:text-lg leading-relaxed">
-                Seeking an environment where I can contribute my problem-solving
-                skills and strong drive to master my coding expertise and
-                deliver high-quality software solutions. <br />I enjoy
-                problem-solving and coding and I am passionate about designing
-                software solutions that are user-friendly and efficient. I'm
-                constantly striving to expand my technical skills through
-                practice and experimentation with new frameworks.
+                Recent Computer Science graduate from the University of
+                Witwatersrand, currently pursuing an honours degree. I am
+                passionate about Machine Learning and Artificial Intelligence,
+                and I actively seek opportunities to incorporate these interests
+                into my projects. I thrive in environments that challenge me to
+                solve complex problems and push the boundaries of my technical
+                abilities. My enthusiasm for coding is matched by a commitment
+                to building software that is both robust and user-centric. I am
+                always eager to experiment with new frameworks and technologies,
+                believing that continuous learning is key to delivering
+                innovative solutions. My goal is to contribute to impactful
+                projects while growing as a developer and staying at the
+                forefront of advancements in the tech industry.
               </p>
             </div>
 
@@ -353,7 +363,7 @@ function Home() {
                   environments.
                 </p>
               </div>
-
+              {/* 
               <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col">
                 <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
                   <img
@@ -372,7 +382,7 @@ function Home() {
                   (MongooseDB, Express, React, Node.js) and JavaScript for
                   simple and complex web application solutions.
                 </p>
-              </div>
+              </div> */}
 
               <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100 flex flex-col">
                 <div className="bg-gradient-to-br from-teal-500 to-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md">
@@ -474,8 +484,9 @@ function Home() {
               <p className="max-w-[900px] text-gray-700 md:text-lg leading-relaxed">
                 Currently have completed my bachelors degree in Computer Science
                 at the University of Witwatersrand. I have a strong foundation
-                in mathematics, computer science and software development
-                principles.
+                in mathematics, computer science, and software development
+                principles, with additional experience in machine learning and
+                artificial intelligence
               </p>
             </div>
 
@@ -518,7 +529,7 @@ function Home() {
 
                   <div className="bg-gradient-to-r from-teal-50 to-emerald-50 px-4 py-2 rounded-lg inline-block mb-6">
                     <span className="font-bold text-gray-700">Average:</span>
-                    <span className="text-teal-600 font-bold ml-2">70+</span>
+                    <span className="text-teal-600 font-bold ml-2">75+</span>
                   </div>
 
                   <div className="mt-6">
@@ -540,6 +551,15 @@ function Home() {
                       </div>
                       <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
                         Computer Networks
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Mathematical Methods and Modelling
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Scientific Computing
+                      </div>
+                      <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
+                        Mechanics
                       </div>
                       <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
                         Mobile Computing
@@ -586,14 +606,16 @@ function Home() {
                   </div>
 
                   <div className="flex items-center mb-4">
-                    <p className="text-teal-600 font-bold">Maragon Mooikloof</p>
+                    <p className="text-teal-600 font-bold">
+                      George Campbell HighSchool of Technology
+                    </p>
                     <span className="mx-2 text-gray-400">•</span>
                     <p className="text-gray-500">Matriculated: 2021</p>
                   </div>
 
                   <div className="bg-gradient-to-r from-teal-50 to-emerald-50 px-4 py-2 rounded-lg inline-block mb-6">
                     <span className="font-bold text-gray-700">Average:</span>
-                    <span className="text-teal-600 font-bold ml-2">77+</span>
+                    <span className="text-teal-600 font-bold ml-2">70+</span>
                   </div>
 
                   <div className="mt-2">
@@ -608,10 +630,10 @@ function Home() {
                         Physical Science
                       </div>
                       <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
-                        Information Technology
+                        Engineering Graphics and Design
                       </div>
                       <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
-                        Dramatic Arts
+                        Electircal Technology
                       </div>
                       <div className="bg-gray-50 px-3 py-2 rounded-md text-gray-700">
                         English HL
@@ -648,44 +670,50 @@ function Home() {
                 <div className="md:flex">
                   <div className="md:w-2/3 p-8">
                     <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                      Campus Safety App
+                      Blocky Cars
                     </h3>
                     <p className="text-gray-600 mb-6 leading-relaxed">
-                      Campus Safety is a state-of-the-art web application
-                      designed to enhance campus security by providing real-time
-                      tools and resources for students, staff, and security
-                      personnel. This innovative platform offers users instant
-                      access to emergency alerts, live incident updates, and
-                      direct reporting features. By incorporating live tracking
-                      and real-time notifications, Campus Safety enables swift
-                      communication and rapid response to safety concerns.
+                      Blocky Cars is a unique racing game inspired by the
+                      Minecraft universe. We built custom worlds directly in
+                      Minecraft, exported those worlds, and integrated them into
+                      our game engine to create immersive racing tracks. This
+                      approach allowed us to leverage Minecraft’s creative tools
+                      for level design while delivering a fresh gameplay
+                      experience.
                     </p>
                     <p className="text-gray-600 mb-6 leading-relaxed">
-                      Tailored specifically for campus environments like the
-                      University of the Witswatersrand, the app fosters
-                      collaboration between users and security teams while
-                      promoting transparency and preparedness. With its fully
-                      responsive design, Campus Safety ensures a seamless and
-                      user-friendly experience on any device, keeping users
-                      informed and connected at all times.
+                      The project features several optimizations for performance
+                      including efficient world loading and rendering
+                      techniques. Blocky Cars combines the fun of
+                      Minecraft-style environments with fast-paced racing
+                      mechanics, offering players a visually engaging and
+                      entertaining experience.
                     </p>
                     <p className="text-gray-500 italic mb-6">
-                      Demo accounts are available through the GitHub link
-                      provided.
+                      Below I have attached the Youtube link of us showcasing
+                      the game.
                     </p>
-
                     <div className="flex items-center gap-4">
                       <a
-                        href="https://campus-safety.azurewebsites.net/"
+                        href="https://lamp.ms.wits.ac.za/~scarhatt/"
                         target="_blank"
                         className="flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
                         rel="noreferrer"
                       >
                         <ExternalLink size={18} />
-                        View Live
+                        Play Game
                       </a>
                       <a
-                        href="https://github.com/ThendoRavi/campus-safety-app.git"
+                        href="https://youtu.be/zHYLwI1N_3g"
+                        target="_blank"
+                        className="flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                        rel="noreferrer"
+                      >
+                        <YoutubeIcon size={18} />
+                        Video Link
+                      </a>
+                      <a
+                        href="https://github.com/Mondo3771/CGV-Assignment"
                         target="_blank"
                         className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
                         rel="noreferrer"
@@ -698,7 +726,7 @@ function Home() {
                   <div className="md:w-1/3">
                     <div className="h-full flex items-center justify-center bg-gray-50 p-4">
                       <img
-                        src={campusSafety || "/placeholder.svg"}
+                        src={Blocky || "/placeholder.svg"}
                         alt="Campus Safety App"
                         className="w-full rounded-lg shadow-lg object-contain"
                         style={{ maxHeight: "400px" }}
