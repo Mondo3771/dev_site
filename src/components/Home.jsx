@@ -29,6 +29,8 @@ import azure from "../assets/azure.svg";
 import campusSafety from "../assets/campusSafety.png";
 import commongrounds from "../assets/commongrounds.png";
 import Blocky from "../assets/Bock.png";
+import synergy from "../assets/synergy.png";
+import Univents from "../assets/univents.png";
 
 // set these ones to sernegy , Univents , Serene and BlockyCars ,
 import email from "../assets/email.png";
@@ -173,9 +175,9 @@ function Home() {
                   <p className="text-lg text-gray-700 max-w-[600px] leading-relaxed">
                     Computer Science graduate from the University of
                     Witwatersrand. Currently pursuing my honours degree.
-                    <br />I have a great intrest in Machine Learning and
-                    Artificial Intelligence, and I am always looking for new to
-                    intergrate those intrests into my projects.
+                    <br />I keen about Machine Learning and
+                    Artificial Intelligence, and I am constantly pursuing the
+                    intergrate of these into my projects.
                   </p>
 
                   <div className="flex flex-row items-center gap-4 mt-6">
@@ -678,6 +680,67 @@ function Home() {
                 <div className="md:flex">
                   <div className="md:w-2/3 p-8">
                     <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                      Univents
+                    </h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      Univents is a web application designed as a school project
+                      to enable students at the University of the Witwatersrand
+                      to sell tickets for events hosted on campus. The platform
+                      simplifies event management by providing a centralized
+                      space for ticket sales, making it easier for students to
+                      organize and attend university events.
+                    </p>
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      "It featured seamless integration with another application
+                      for logging external issues and bookings, a built-in
+                      payment system, a fully functional calendar, and
+                      comprehensive user management with login, signup, and
+                      authorization capabilities. These features worked together
+                      to provide a smooth and efficient user experience for
+                      managing events and related activities."
+                    </p>
+                    <p className="text-gray-500 italic mb-6">
+                      Below I have attached the github repo for the site and a
+                      link.
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <a
+                        href="https://delightful-forest-0475dad03.5.azurestaticapps.net/"
+                        target="_blank"
+                        className="flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                        rel="noreferrer"
+                      >
+                        <ExternalLink size={18} />
+                        Visit site
+                      </a>
+
+                      <a
+                        href="https://github.com/Tapiwamaz/SDP-project"
+                        target="_blank"
+                        className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+                        rel="noreferrer"
+                      >
+                        <Github size={18} />
+                        GitHub
+                      </a>
+                    </div>
+                  </div>
+                  <div className="md:w-1/3">
+                    <div className="h-full flex items-center justify-center bg-gray-50 p-4">
+                      <img
+                        src={Univents || "/placeholder.svg"}
+                        alt="Campus Safety App"
+                        className="w-full rounded-lg shadow-lg object-contain"
+                        style={{ maxHeight: "400px" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
+                <div className="md:flex">
+                  <div className="md:w-2/3 p-8">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-4">
                       Blocky Cars
                     </h3>
                     <p className="text-gray-600 mb-6 leading-relaxed">
@@ -735,6 +798,68 @@ function Home() {
                     <div className="h-full flex items-center justify-center bg-gray-50 p-4">
                       <img
                         src={Blocky || "/placeholder.svg"}
+                        alt="Campus Safety App"
+                        className="w-full rounded-lg shadow-lg object-contain"
+                        style={{ maxHeight: "400px" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
+                <div className="md:flex">
+                  <div className="md:w-2/3 p-8">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                      Synergy
+                    </h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      Synergy is a time management application designed to help
+                      you track your employees' time effectively. It allows you
+                      to monitor how long tasks take to complete, providing
+                      insights into job durations and overall productivity. With
+                      Synergy, managing and optimizing your team's time becomes
+                      seamless and efficient.
+                    </p>
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      Synergy is a feature-rich application designed to enhance
+                      productivity and streamline operations. It not only tracks
+                      employee time and task durations but also facilitates
+                      staff onboarding, meal bookings, and car wash scheduling.
+                      The app includes a collaborative chat feature, enabling
+                      team members to review and discuss work efficiently,
+                      making it a versatile tool for managing both time and team
+                      activities
+                    </p>
+                    <p className="text-gray-500 italic mb-6">
+                      Below I have attached the Youtube link of us showcasing
+                      the webapp as it had to be remove due to insufficient
+                      credits needed to keep it running.
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <a
+                        href="https://www.youtube.com/watch?v=zHYLwI1N_3g"
+                        target="_blank"
+                        className="flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                        rel="noreferrer"
+                      >
+                        <YoutubeIcon size={18} />
+                        Video Link
+                      </a>
+                      <a
+                        href="https://github.com/Mondo3771/CGV-Assignment"
+                        target="_blank"
+                        className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+                        rel="noreferrer"
+                      >
+                        <Github size={18} />
+                        GitHub
+                      </a>
+                    </div>
+                  </div>
+                  <div className="md:w-1/3">
+                    <div className="h-full flex items-center justify-center bg-gray-50 p-4">
+                      <img
+                        src={synergy || "/placeholder.svg"}
                         alt="Campus Safety App"
                         className="w-full rounded-lg shadow-lg object-contain"
                         style={{ maxHeight: "400px" }}
