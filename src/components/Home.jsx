@@ -26,8 +26,7 @@ import tailwind from "../assets/tailwindT.svg";
 import nodejs from "../assets/nodejsT.svg";
 import mongodb from "../assets/mongodbT.svg";
 import azure from "../assets/azure.svg";
-import campusSafety from "../assets/campusSafety.png";
-import commongrounds from "../assets/commongrounds.png";
+ 
 import Blocky from "../assets/Bock.png";
 import synergy from "../assets/synergy.png";
 import Univents from "../assets/univents.png";
@@ -46,8 +45,7 @@ import postman from "../assets/postman.svg";
 import team from "../assets/management.png";
 import learner from "../assets/brain.png";
 import communication from "../assets/conversation.png";
-import fatguys from "../assets/fat-guys.jpg";
-import witssdasm from "../assets/witssdasm.png";
+ 
 
 import "../App.css";
 
