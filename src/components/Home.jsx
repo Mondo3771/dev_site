@@ -29,7 +29,9 @@ import azure from "../assets/azure.svg";
  
 import Blocky from "../assets/Bock.png";
 import synergy from "../assets/synergy.png";
-import Univents from "../assets/univents.png";
+import Univents from "<div styleName={} />
+<assets />
+<univents_copy></univents_copy>.png";
 
 // set these ones to sernegy , Univents , Serene and BlockyCars ,
 import email from "../assets/email.png";
