@@ -48,6 +48,7 @@ import communication from "../assets/conversation.png";
  
 
 import "../App.css";
+import { Analytics } from "@vercel/analytics/react";
 
 function Home() {
   // State for skill tooltip
@@ -129,6 +130,7 @@ function Home() {
 
   return (
     <div className="bg-gradient-to-b from-[#f8fafc] to-[#e2f1fd] min-h-screen">
+      <Analytics />
       <NavBar />
       <main className="flex-1 items-center justify-center pt-16">
         {/* Hero Section - Modern Design */}
@@ -173,9 +175,9 @@ function Home() {
                   <p className="text-lg text-gray-700 max-w-[600px] leading-relaxed">
                     Computer Science graduate from the University of
                     Witwatersrand. Currently pursuing my honours degree.
-                    <br />I keen about Machine Learning and
-                    Artificial Intelligence, and I am constantly pursuing the
-                    intergrate of these into my projects.
+                    <br />I keen about Machine Learning and Artificial
+                    Intelligence, and I am constantly pursuing the intergrate of
+                    these into my projects.
                   </p>
 
                   <div className="flex flex-row items-center gap-4 mt-6">
